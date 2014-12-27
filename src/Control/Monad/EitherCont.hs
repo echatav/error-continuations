@@ -4,7 +4,7 @@ module Control.Monad.EitherCont
     , runEitherCont
     , eitherEC
     , fmapL
-    , bimapEitherC
+    , bimapEC
     , throwEC
     , apL
     , catchEC
