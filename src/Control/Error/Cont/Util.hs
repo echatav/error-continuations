@@ -19,10 +19,12 @@ import Control.Applicative
 import Control.Monad.Trans.EitherCont
 import Control.Monad.Trans.MaybeCont
 
--- |Suppress the nothing continuation of an 'EitherContT'
+-- |Suppress the failure continuation of an 'EitherContT'
 hush :: EitherContT a l m r -> MaybeContT a m r
 hush ec = MaybeContT $ \ma k -> runEitherContT ec (const ma) k
 
 -- |Tag the nothing continuation of a 'MaybeContT'
+--
+-- prop> hush . note l = id
 note :: l -> MaybeContT a m r -> EitherContT a l m r
 note l mc = EitherContT $ \kl kr -> runMaybeContT mc (kl l) kr
