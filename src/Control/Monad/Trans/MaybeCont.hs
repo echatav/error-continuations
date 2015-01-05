@@ -27,9 +27,8 @@ import Control.Monad.Cont
 import Control.Monad.Trans
 import Control.Monad.Trans.Maybe
 
--- |The 'MaybeContT' 'a' 'l' 'm' 'r' type encodes a nullable monad transformer
--- in continuation passing style which is monadic in 'r'. This property holds
--- for any type constructor 'm'.
+-- |The 'MaybeContT' 'a' 'm' 'r' type encodes a nullable monad transformer
+-- in continuation passing style.
 newtype MaybeContT a m r
     -- |Construct a continuation-passing computation from a function.
     = MaybeContT
